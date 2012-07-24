@@ -107,7 +107,7 @@ function Get-SourceDestinationURLInfo
 	# Regex to match URL with a 'dotted' file
 	#$Regex = "(?<URL>(?<protocol>https?)://(?<domain>(?<SAN>[-a-zA-Z0-9]+)[-a-zA-Z0-9.]+))/(?<stem>(?<container>[-a-zA-Z0-9]*)/?(?:[-a-zA-Z0-9]*/)*)?(?<file>[-a-zA-Z0-9]+\x2E[-a-zA-Z0-9]+)?"
 	# Regex to match URL with a NON 'dotted' file
-	$Regex = "(?<URL>(?<protocol>https?)://(?<domain>(?<SAN>[-a-zA-Z0-9]+)[-a-zA-Z0-9.]+))/?(?<stem>(?<container>[-a-zA-Z0-9]*)/?(?:[-a-zA-Z0-9]*/)*)?(?<file>[-a-zA-Z0-9\x2E]+)?"
+	$Regex = "(?<URL>(?<protocol>https?)://(?<domain>(?<SAN>[-a-zA-Z0-9]+)[-a-zA-Z0-9.]+))/?(?<stem>(?<container>[-a-zA-Z0-9]*)/?(?:[-a-zA-Z0-9\x2E_]*/)*)?(?<file>[-a-zA-Z0-9\x2E_]+)?"
 	$Matches = [regex]::match($pathToTest,$Regex)
 	return $Matches
 }
